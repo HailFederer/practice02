@@ -7,18 +7,18 @@ public class Prob5 {
 
 	public static void main(String[] args) {
 		
-		// 게임 변수 초기화
-		int minNumber = 1;
-		int maxNumber = 100;
-
-		// 정답 램덤하게 만들기
-		Random random = new Random();
-		int correctNumber = random.nextInt(maxNumber) + minNumber;
-		
 		Scanner sc = new Scanner(System.in);
+		Random random = new Random();
 		
 		String answer = null;
 		do {
+			// 게임 변수 초기화
+			int minNumber = 1;
+			int maxNumber = 100;
+
+			// 정답 램덤하게 만들기
+			int correctNumber = random.nextInt(maxNumber) + minNumber;
+			
 			int tryNum;
 			int repeatNum=1;
 			
@@ -29,13 +29,12 @@ public class Prob5 {
 				
 				System.out.print(repeatNum+"번째 시도>> ");
 				
-				boolean valid = true;
+				boolean valid = false;
 				do {
 					tryNum = sc.nextInt();
 					
 					if(tryNum<minNumber || tryNum>maxNumber){
 						System.out.println("범위 내의 값으로 다시 입력해주세요.");
-						valid = false;
 					}else{
 						valid =true;
 					}
