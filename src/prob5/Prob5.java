@@ -6,29 +6,34 @@ import java.util.Scanner;
 public class Prob5 {
 
 	public static void main(String[] args) {
+		
+		// 게임 변수 초기화
+		int minNumber = 1;
+		int maxNumber = 100;
 
-		Random r = new Random();
+		// 정답 램덤하게 만들기
+		Random random = new Random();
+		int correctNumber = random.nextInt(maxNumber) + minNumber;
+		
 		Scanner sc = new Scanner(System.in);
 		
 		String answer = null;
 		do {
-			int ranNum = r.nextInt(100)+1;
-			int min=1, max=100;
 			int tryNum;
 			int repeatNum=1;
 			
-			System.out.println(ranNum);
+			System.out.println(correctNumber);
 			
 			System.out.println("숫자를 맞춰보세요.(1~100)");
 			while(true){
 				
-				System.out.print(repeatNum+">> ");
+				System.out.print(repeatNum+"번째 시도>> ");
 				
 				boolean valid = true;
 				do {
 					tryNum = sc.nextInt();
 					
-					if(tryNum<min || tryNum>max){
+					if(tryNum<minNumber || tryNum>maxNumber){
 						System.out.println("범위 내의 값으로 다시 입력해주세요.");
 						valid = false;
 					}else{
@@ -36,19 +41,19 @@ public class Prob5 {
 					}
 				} while (valid==false);
 				
-				if(ranNum == tryNum){
+				if(correctNumber == tryNum){
 					System.out.println("정답입니다!");
 					break;
 				}else{
-					if(ranNum < tryNum){
+					if(correctNumber < tryNum){
 						System.out.println("더 낮게");
-						max = tryNum-1;
+						maxNumber = tryNum-1;
 					}else{
 						System.out.println("더 높게");
-						min = tryNum+1;
+						minNumber = tryNum+1;
 					}
 					
-					System.out.println(min+"~"+max);
+					System.out.println(minNumber+"~"+maxNumber);
 				}
 				
 				repeatNum++;
