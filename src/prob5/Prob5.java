@@ -53,7 +53,7 @@ public class Prob5 {
 		while(true) {
 			randomGame();
 			System.out.print("다시 하시겠습니까?(y/n)");
-			if(sc.next().equals("n")) {
+			if("n".equals(sc.next())) {
 				break;
 			}
 		}
